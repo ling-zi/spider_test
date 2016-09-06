@@ -30,14 +30,13 @@ class SpiderMain(object):
                 #补充新的url
                 self.urls.add_new_urls(new_urls)
                 self.outputer.collect_data(new_data)
-
-                if count == 10:
+                #控制抓取url数为100
+                if count == 100:
                     break
                 count = count + 1
+            #异常处理
             except Exception as f:
                print('crew failed: ', f)
-
-
         #输出
         self.outputer.output_html()
 
